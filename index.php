@@ -1,31 +1,46 @@
+<?php
+
+require_once  'includes/header.php';
+require_once 'includes/functions.php';
+
+require_once 'includes/variable.php';
+
+
+
+?>
+
 <html lang="fr">
     <body>
         <h1>Un fichier d'exemple</h1>
-<?php
+        <?php echo date('d/m/Y H:i:s'); ?>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prix HT</th>
+                    <th>Prix TTC</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($tab as $key => $value) {
+                ?><tr>
+                    <td><?php  echo $value['name']; ?></td>
+                    <td><?php echo getPriceWithoutTVA((float) $value['price']); ?></td>
 
-    include  'functions.php';
-
-    include 'variable.php';
-
-    echo date('d/m/Y H:i:s');
-
-
-    foreach($tab as $key => $value) {
-        echo $key. ' : <br \>';
-        foreach($value as $key2 => $value2)
-            if($key2 == 'prix') {
-                if($value2 <= 12) {
-                    echo getPriceWithoutTVA($value2). '-> <span style="color: green">' .$value2. '</span><br \>';
-                }
-                else {
-                    echo getPriceWithoutTVA($value2). '-> <span style="color: blue">' .$value2. '</span><br \>';
-                }
+                    <?php if($value['price'] <= 12) {
+                        echo '<td><span style="color: blue">' .$value['price']. '</span></td>';
+                    }
+                     else {
+                        echo  '<td><span style="color: green">' .$value['price']. '</span></td>';
+                    } ?>
+                    <td><?php echo $value['description']; ?> </td>
+                </tr>
+            <?php
             }
-        else 
-            echo $key2. ' : ' .$value2. '<br \>';
-    }
+            ?>
 
-
-    ?>
+            </tbody>
+        </table>
     </body>
 </html>
