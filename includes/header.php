@@ -1,6 +1,10 @@
 <?php
     include_once "variables.php";
     include_once "functions.php";
+    session_start();
+    if(isset($_POST['login'])) {
+        $_SESSION['login'] = $_POST['login'];
+    }
     ?>
 
 <!DOCTYPE html
@@ -22,8 +26,17 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="list.php">Liste</a>
-                <a class="nav-link" href="login.php">Login</a>
 
+                <?php if(isset($_SESSION['login'])) {
+                    ?>
+                <span class="nav-link" ><?= $_SESSION['login']?></span>
+                <?php }
+                else {
+                    ?>
+                <a class="nav-link" href="login.php">login</a>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>
