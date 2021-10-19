@@ -30,6 +30,7 @@
                 <?php if(isset($_SESSION['login'])) {
                     ?>
                 <span class="nav-link" ><?= $_SESSION['login']?></span>
+                    <a class="nav-link" href="logout.php">Logout</a>
                 <?php }
                 else {
                     ?>
