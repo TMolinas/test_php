@@ -1,16 +1,8 @@
 <?php
 
 require_once  'includes/header.php';
-require_once 'includes/functions.php';
-
-require_once 'includes/variable.php';
-
-
 
 ?>
-
-<html lang="fr">
-    <body>
         <h1>Un fichier d'exemple</h1>
         <?php echo date('d/m/Y H:i:s'); ?>
         <table class="table">
@@ -42,5 +34,6 @@ require_once 'includes/variable.php';
 
             </tbody>
         </table>
-    </body>
-</html>
+<?php
+    include_once "includes/footer.php"
+?>
