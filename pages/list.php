@@ -1,6 +1,6 @@
 <?php
 
-require_once  'includes/header.php';
+require_once '../includes/header.php';
 
 ?>
         <h1>Un fichier d'exemple</h1>
@@ -35,5 +35,5 @@ require_once  'includes/header.php';
             </tbody>
         </table>
 <?php
-    include_once "includes/footer.php"
+include_once "../includes/footer.php"
 ?>

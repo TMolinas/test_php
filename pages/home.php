@@ -1,6 +1,13 @@
 <?php
-    include_once "includes/header.php";
+    include_once "../includes/header.php";
 
+    if (isset($_GET['loginSuccess']) && $_GET['loginSuccess'] == 1) {
+        ?>
+        <div class="alert alert-success" role="alert">
+            Connexion réussie.
+        </div>
+        <?php
+    }
     $count = 1;
     foreach($tab as $key => $value) {
         if ($count > 3)
@@ -26,5 +33,5 @@
 <a href="list.php" class="btn btn-info">Voir tous les produits</a>
 
 <?php
-    include_once "includes/footer.php";
+    include_once "../includes/footer.php";
 ?>
