@@ -3,7 +3,8 @@
     include_once "functions.php";
     session_start();
     if(isset($_POST['login'])) {
-        $_SESSION['login'] = $_POST['login'];
+        if ($_POST['password'] === $password)
+            $_SESSION['login'] = $_POST['login'];
     }
     ?>
 

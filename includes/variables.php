@@ -25,4 +25,6 @@ $tab = [
                 'image' => 'images/4.jpg'
             ]
         ];
+
+$password = 'toto';
 ?>

@@ -20,7 +20,23 @@
 </div>
 </form>
 
-
 <?php
+if(!empty($_POST['login'])) {
+    if($_POST['password'] === $password) {
+        $_SESSION['login'] = $_POST['login'];
+        ?>
+        <div class="alert alert-success" role="alert">
+            Connexion réussie.
+        </div>
+        <?php
+    }
+    else {
+        ?>
+    <div class="alert alert-danger" role="alert">
+        Mauvais mot de passe!
+    </div>
+   <?php }
+}
+
     include_once "includes/footer.php";
     ?>
