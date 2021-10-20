@@ -8,6 +8,7 @@
                     <th>Prix HT</th>
                     <th>Prix TTC</th>
                     <th>Description</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,6 +24,7 @@
                         echo  '<td><span style="color: green">' .$value['price']. '</span></td>';
                     } ?>
                     <td><?php echo $value['description']; ?> </td>
+                    <td><a class="btn btn-secondary" href="?page=cart&id=<?= $value['id']; ?>&action=add">Ajouter au panier</a></td>
                 </tr>
             <?php
             }
