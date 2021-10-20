@@ -1,8 +1,4 @@
-<?php
 
-require_once '../includes/header.php';
-
-?>
         <h1>Un fichier d'exemple</h1>
         <?php echo date('d/m/Y H:i:s'); ?>
         <table class="table">
@@ -34,6 +30,3 @@ require_once '../includes/header.php';
 
             </tbody>
         </table>
-<?php
-include_once "../includes/footer.php"
-?>

@@ -1,6 +1,3 @@
-<?php
-    include_once "../includes/header.php";
-    ?>
 
 <form action="" method="post">
 <div class="mb-3 row">
@@ -24,7 +21,7 @@
 if(!empty($_POST['login'])) {
     if($_POST['password'] === $password) {
         $_SESSION['login'] = $_POST['login'];
-        header('Location: home.php?loginSuccess=1');
+        header('Location: index/php?page=home&loginSuccess=1');
         ?>
 
         <?php
@@ -34,8 +31,5 @@ if(!empty($_POST['login'])) {
     <div class="alert alert-danger" role="alert">
         Mauvais mot de passe!
     </div>
-   <?php }
-}
-
-    include_once "../includes/footer.php";
-    ?>
+<?php }
+}?>

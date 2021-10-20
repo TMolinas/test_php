@@ -1,5 +1,4 @@
 <?php
-    include_once "../includes/header.php";
 
     if (isset($_GET['loginSuccess']) && $_GET['loginSuccess'] == 1) {
         ?>
@@ -30,8 +29,4 @@
 
 <?php } ?>
 
-<a href="list.php" class="btn btn-info">Voir tous les produits</a>
-
-<?php
-    include_once "../includes/footer.php";
-?>
+<a href="?page=list" class="btn btn-info">Voir tous les produits</a>

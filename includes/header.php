@@ -20,22 +20,22 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="home.php">Index</a>
+        <a class="navbar-brand" href="?page=home">Home</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="list.php">Liste</a>
+                <a class="nav-link active" aria-current="page" href="?page=list">Voir la liste des bonnets</a>
 
                 <?php if(isset($_SESSION['login'])) {
                     ?>
                 <span class="nav-link" ><?= $_SESSION['login']?></span>
-                    <a class="nav-link" href="logout.php">Logout</a>
+                    <a class="nav-link" href="?page=logout">Logout</a>
                 <?php }
                 else {
                     ?>
-                <a class="nav-link" href="login.php">login</a>
+                <a class="nav-link" href="?page=login">login</a>
                 <?php
                 }
                 ?>
