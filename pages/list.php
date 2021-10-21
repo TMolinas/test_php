@@ -16,10 +16,18 @@ if(isset($_GET['filter'])) {
             });
         }
 
+        if (!empty($_POST['priceMinFilter'])) {
+            $filter = $_POST['priceMinFilter'];
+            $mesProduitsFilter = array_filter($mesProduits, function ($element) use ($filter) {
+                return $element->price >= $filter;
+            });
+        }
+
+
+
     }
 }
 
-var_dump($mesProduitsFilter);
 ?>
         <h1>Un fichier d'exemple</h1>
         <?php echo date('d/m/Y H:i:s');
@@ -59,23 +67,35 @@ var_dump($mesProduitsFilter);
             </tbody>
         </table>
         <form action="?page=list&filter=on" method="post">
-            <label for="matterFilter">Choisir une matière</label>
-            <select id="matterFilter" name="matterFilter">
-            <?php foreach (Beanie::MATTER as $matter) {
-                ?>
+            <div class="form-group">
+                <label for="matterFilter">Choisir une matière</label>
+                <select id="matterFilter" name="matterFilter">
+                    <option value="">--Veuillez choisir une option--</option>
+                <?php foreach (Beanie::MATTER as $matter) {
+                    ?>
 
-                <option value=<?= $matter ?>><?= $matter ?></option>
-            <?php }
-            ?>
+                    <option value=<?= $matter ?>><?= $matter ?></option>
+                <?php }
+                ?>
+            </div>
+
             </select>
-             <label for="sizeFilter">Choisir une taille</label>
-             <select id="sizeFilter" name="sizeFilter">
-             <?php foreach (Beanie::SIZE as $size) {
-                 ?>
-                 <option value=<?= $size ?>><?= $size ?></option>
-             <?php
-             } ?>
-             </select>
+            <div class="form-group">
+                 <label for="sizeFilter">Choisir une taille</label>
+                 <select id="sizeFilter" name="sizeFilter">
+                     <option value="">--Veuillez choisir une option--</option>
+                 <?php foreach (Beanie::SIZE as $size) {
+                     ?>
+                     <option value=<?= $size ?>><?= $size ?></option>
+                 <?php
+                 } ?>
+                 </select>
+            </div>
+            <div class="form-group">
+                <label for="priceMinFilter">Indiquer un prix minimum</label>
+                <input type="number" id="priceMinFilter" name="priceMinFilter">
+            </div>
                 <input type="submit" value="Filtrer" />
         </form>
+        <a class="btn btn-primary" href="?page=list">Réinitialiser les filtres</a>
 
