@@ -12,7 +12,7 @@ class Beanie {
     public $matter;
 
     const SIZE = ['S'=>'S','M'=>'M','L'=>'L','XL'=>'XL'];
-    const MATTER = ['Laine', 'Laine bio', 'Synthetique', 'Cachemire'];
+    const MATTER = ['Laine', 'Laine-bio', 'Synthetique', 'Cachemire'];
 
     /**
      * Beanie constructor.

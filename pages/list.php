@@ -1,6 +1,32 @@
 
+<?php
+
+if(isset($_GET['filter'])) {
+    if ($_GET['filter'] == 'on') {
+        if (!empty($_POST['matterFilter'])) {
+            $filter = $_POST['matterFilter'];
+            $mesProduitsFilter = array_filter($mesProduits, function ($element) use ($filter) {
+                return $element->matter === $filter;
+            });
+        }
+        if (!empty($_POST['sizeFilter'])) {
+            $filter = $_POST['sizeFilter'];
+            $mesProduitsFilter = array_filter($mesProduits, function ($element) use ($filter) {
+                return $element->size === $filter;
+            });
+        }
+
+    }
+}
+
+var_dump($mesProduitsFilter);
+?>
         <h1>Un fichier d'exemple</h1>
-        <?php echo date('d/m/Y H:i:s'); ?>
+        <?php echo date('d/m/Y H:i:s');
+            if (empty($mesProduitsFilter) && !isset($_GET['filter'])) {
+                $mesProduitsFilter = $mesProduits;
+            }
+            ?>
         <table class="table">
             <thead>
                 <tr>
@@ -12,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($mesProduits as $key => $value) {
+            <?php foreach($mesProduitsFilter as $key => $value) {
                 ?><tr>
                     <td><?php  echo $value->name; ?></td>
                     <td><?php echo getPriceWithoutTVA((float) $value->price); ?></td>
@@ -32,7 +58,24 @@
 
             </tbody>
         </table>
+        <form action="?page=list&filter=on" method="post">
+            <label for="matterFilter">Choisir une matière</label>
+            <select id="matterFilter" name="matterFilter">
+            <?php foreach (Beanie::MATTER as $matter) {
+                ?>
 
-        <?php
-        var_dump($mesProduits);
-        ?>
+                <option value=<?= $matter ?>><?= $matter ?></option>
+            <?php }
+            ?>
+            </select>
+             <label for="sizeFilter">Choisir une taille</label>
+             <select id="sizeFilter" name="sizeFilter">
+             <?php foreach (Beanie::SIZE as $size) {
+                 ?>
+                 <option value=<?= $size ?>><?= $size ?></option>
+             <?php
+             } ?>
+             </select>
+                <input type="submit" value="Filtrer" />
+        </form>
+
