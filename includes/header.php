@@ -27,6 +27,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="?page=list">Voir la liste des bonnets</a>
+                <a class="nav-link" href="?page=contact-form">Contact</a>
 
                 <?php if(isset($_SESSION['login'])) {
                     ?>
