@@ -60,14 +60,14 @@ var_dump($_SESSION);
     </thead>
     <tbody>
         <?php foreach ($_SESSION['cart'] as $keyId => $product) {
-            $beanie = findBeanieById((int)$keyId, $tab);
-            $priceByItem = $beanie['price'] * $_SESSION['cart'][$keyId];
+            $beanie = findBeanieById((int)$keyId, $mesProduits);
+            $priceByItem = $beanie->price * $_SESSION['cart'][$keyId];
             $priceTotal += $priceByItem;
             ?>
             <tr>
                 <td><?= $keyId; ?></td>
-                <td><?php echo $beanie['name']; ?></td>
-                <td><?php echo $beanie['price']; ?></td>
+                <td><?php echo $beanie->name; ?></td>
+                <td><?php echo $beanie->price; ?></td>
                 <td><?php echo $_SESSION['cart'][$keyId] ; ?></td>
                 <td><?= $priceByItem ?></td>
                 <td><a href="?page=cart&id=<?= $keyId; ?>&action=pull" class="btn btn-outline-warning">-</a>

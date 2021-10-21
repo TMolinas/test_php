@@ -6,9 +6,9 @@ function getPriceWithoutTVA(float $priceWithTVA): float {
 
 }
 
-function findBeanieById(int $id, array $products): ?array {
+function findBeanieById(int $id, array $products): ?Beanie {
     foreach ($products as $beanie) {
-        if ($beanie['id'] == $id) {
+        if ($beanie->id == $id) {
             return $beanie;
         }
     }
